@@ -1,19 +1,19 @@
-name: Deploy to Heroku
+name: Deploy on Heroku
 on:
   push:
     branches:
-
+      - master
 
 jobs:
   build-frontend:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3 #??
+      - uses: actions/setup-node@v2 #??
         with:
-          node-version: '16'
+          node-version: '14'
       - name: Build Frontend
-        run: |
+        run: | #??
           cd frontend
           npm install
           npm run build
@@ -40,16 +40,16 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: backend-build
-          path: backend/target/app.jar  # app name (matches with final name in pom and Dockerfile)
+          path: backend/target/app.jar
 
   deploy:
     runs-on: ubuntu-latest
     needs: build-backend
     environment:
       name: Produktion Heroku
-      url: https://fancy-party-app.herokuapp.com/ # url of heroku app
+      url: "https://fancy-party-app.herokuapp.com/"
     env:
-      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}  # Heroku Key: will be replaced in GitHub
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }} #currywurst?
     steps:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v2
@@ -58,7 +58,7 @@ jobs:
           path: backend/target
       - name: Login to Heroku
         run: heroku container:login
-      - name: Push Docker Image
-        run: heroku container:push web -a fancy-party-app # name of the heroku app
-      - name: Release Docker Container
+      - name: Push App
+        run: heroku container:push web -a fancy-party-app
+      - name: Release App
         run: heroku container:release web -a fancy-party-app # name of the heroku app
