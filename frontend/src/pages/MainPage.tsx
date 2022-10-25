@@ -2,8 +2,10 @@ import FancyPartyAppOverview from "../components/FancyPartyAppOverview";
 import {FancyPartyApp} from "../model/FancyPartyApp";
 
 type FancyPartyAppOverviewProps = {
-    player: FancyPartyApp[]
+    players: FancyPartyApp[]
     addPlayer: (toAdd: FancyPartyApp) => void
+    deletePlayer: (id: string) => void
+
 }
 
 export default function MainPage(props: FancyPartyAppOverviewProps){
@@ -14,7 +16,7 @@ export default function MainPage(props: FancyPartyAppOverviewProps){
                 <span> <p>Fancy Party App</p></span>
             </main>
             
-            <FancyPartyAppOverview player={props.player} addPlayer={props.addPlayer} />
+            <FancyPartyAppOverview players={props.players} addPlayer={props.addPlayer} deletePlayer={props.deletePlayer} />
         </>
     )
 }

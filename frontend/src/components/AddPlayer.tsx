@@ -1,38 +1,57 @@
 import {FancyPartyApp} from "../model/FancyPartyApp";
-import {useState} from "react";
+import {ChangeEvent, FormEvent, useState} from "react";
+import axios from "axios";
+
+
+const url = "/api/player"
 
 type AddPlayerProps = {
-    addPlayer: (toAdd: FancyPartyApp) => void
+    addPlayer: (toAdd: any) => void
 }
 
 export default function AddPlayer(props: AddPlayerProps) {
 
+    const [playerSite, setPlayerSite] = useState(0)
+
     const emptyPlayer: FancyPartyApp = {
+        id: "",
         player: ""
     }
 
     const [newPlayer, setNewPlayer] = useState(emptyPlayer);
 
-    return (
+    function handleChange(event: ChangeEvent<HTMLInputElement>){
 
-        <form onSubmit={(submit) => {
-            props.addPlayer(newPlayer);
-            submit.preventDefault()
-            setNewPlayer(emptyPlayer)
-        }}>
+        const name = event.target.name;
+        const newValue = event.target.value;
+
+        setNewPlayer((prevPlayer) => ({...prevPlayer,
+        [name]: newValue}))
+    }
+    const handleSubmit = (event:FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        axios.post(url,{...newPlayer})
+            .then(props.addPlayer)
+    }
+
+    return (
+        <form>
             <h3>Spieler hinzufügen</h3>
 
-            <input
-                type={"text"}
-                placeholder={"Spieler hinzufügen"}
-                value={newPlayer.player}
-                onChange={(value) => setNewPlayer((old) => ({...old, [value.target.name]: value.target.value}))}
-                className={"input-style"}
-                name={"command"}
-            />
+            <div>
+                <label htmlFor={"Spielername"}>Spielername:
+                    <input
+                        type={"text"}
+                        name={"Spielername"}
+                        onChange={handleChange}
+                        value={newPlayer.player}
+                        placeholder={"Spielername"}
+                    />
+                </label>
 
             <button type={"submit"} name={"Spieler hinzufügen"}>Spieler hinzufügen</button>
 
+            </div>
         </form>
     )
 }

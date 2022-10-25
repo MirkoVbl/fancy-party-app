@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/fancypartyapp")
+@RequestMapping("/api/fancypartyapp/")
 public class FancyPartyAppController {
 
     private final FancyPartyAppService fancyPartyAppService;
@@ -27,5 +27,9 @@ public class FancyPartyAppController {
     @PostMapping
     FancyPartyApp addPlayer(@RequestBody FancyPartyApp addPlayer) {
         return fancyPartyAppService.addPlayer(addPlayer);
+    }
+    @DeleteMapping("{id}")
+    public void deleteCheatSheet(@PathVariable String id){
+        fancyPartyAppService.deletePlayer(id);
     }
 }

@@ -12,7 +12,7 @@ public class FancyPartyAppService {
 
 
     private final FancyPartyAppRepo fancyPartyAppRepo;
-    private final  IdService idService;
+    private final IdService idService;
 
     @Autowired
     public FancyPartyAppService(FancyPartyAppRepo fancyPartyAppRepo, IdService idService) {
@@ -27,13 +27,11 @@ public class FancyPartyAppService {
     }
 
     public FancyPartyApp addPlayer(FancyPartyApp addPlayer) {
-        FancyPartyApp newPlayer = FancyPartyApp.builder()
-                .id(idService.generateId())
-                .player(addPlayer.getPlayer())
-                .build();
+        addPlayer.setId(idService.generateId());
 
-        return fancyPartyAppRepo.save(newPlayer);
+        return fancyPartyAppRepo.save(addPlayer);
     }
+    public  void deletePlayer(String id) {fancyPartyAppRepo.deleteById(id);}
 
 
 }

@@ -14,12 +14,8 @@ export default function useFancyPartyApp() {
 
     const getAllPlayer = () => {
         axios.get("/api/fancypartyapp")
-            .then((response) => {
-                return response.data
-            })
-            .then((player) =>{
-                setPlayer(player)
-            })
+            .then((response) => {return response.data})
+            .then((player) => {setPlayer(player)})
             .catch(()=> console.error())
     }
 
@@ -28,6 +24,11 @@ export default function useFancyPartyApp() {
             .then(getAllPlayer)
             .catch(()=> console.error())
     }
+    const deletePlayer = (id:  String) => {
+        axios.delete("/api/fancypartyapp/" +id)
+            .then(getAllPlayer)
+            .catch(()=> console.error())
+    }
 
-    return {player, addPlayer}
+    return {player,getAllPlayer, addPlayer, deletePlayer}
 }
