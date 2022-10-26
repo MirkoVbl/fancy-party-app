@@ -1,0 +1,18 @@
+.player-card {
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    font-style: italic;
+}
+
+img{
+    height: 380px;
+    width: 270px;
+}

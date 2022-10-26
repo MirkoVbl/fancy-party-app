@@ -1,22 +1,9 @@
-import FancyPartyAppOverview from "../components/FancyPartyAppOverview";
-import {FancyPartyApp} from "../model/FancyPartyApp";
+export default function MainPage(){
 
-type FancyPartyAppOverviewProps = {
-    players: FancyPartyApp[]
-    addPlayer: (toAdd: FancyPartyApp) => void
-    deletePlayer: (id: string) => void
-
-}
-
-export default function MainPage(props: FancyPartyAppOverviewProps){
-    
-    return (
+    return(
         <>
-            <main>
-                <span> <p>Fancy Party App</p></span>
-            </main>
-            
-            <FancyPartyAppOverview players={props.players} addPlayer={props.addPlayer} deletePlayer={props.deletePlayer} />
+        <h1>Fancy Party App</h1>
         </>
     )
+
 }
