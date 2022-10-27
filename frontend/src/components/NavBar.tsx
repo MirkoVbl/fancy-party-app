@@ -4,8 +4,8 @@ export default function NavBar(){
 
     return(
         <>
-            <Link to={"/"}> Spielerliste </Link>
-            <Link to={"/mainpage"}> Fancy Party App</Link>
+            <Link to={"/"}></Link>
+            <Link to={"/spielerliste"}><button>Spielerliste</button></Link>
         </>
     )
 }

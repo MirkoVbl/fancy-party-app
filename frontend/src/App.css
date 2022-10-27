@@ -1,5 +1,24 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
 .App {
+  font-family: sans-serif;
   text-align: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(75deg, #f60cf2, #00ecfb);
+  animation: hue 6s infinite linear;
+}
+
+@keyframes hue {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(-360deg);
+  }
 }
 
 .App-logo {
