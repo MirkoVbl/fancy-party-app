@@ -1,6 +1,6 @@
 package com.example.backend.controller;
 
-import com.example.backend.model.FancyPartyApp;
+import com.example.backend.model.Player;
 import com.example.backend.repository.FancyPartyAppRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class FancyPartyAppControllerTest {
+class PlayerControllerTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -24,12 +24,13 @@ class FancyPartyAppControllerTest {
     private FancyPartyAppRepo repo;
 
 
+
     @DirtiesContext
     @Test
     void getAllPlayer() throws Exception {
         //Given
-        FancyPartyApp dummyFancyPartyApp = new FancyPartyApp("1","Spieler1");
-        repo.save(dummyFancyPartyApp);
+        Player dummyPlayer = new Player("1","Spieler1");
+        repo.save(dummyPlayer);
 
         //When & Then
 
@@ -37,8 +38,9 @@ class FancyPartyAppControllerTest {
                         get("/api/fancypartyapp"))
                 .andExpect(status().is(200))
                 .andExpect(content().string("""
-                        [{"id":"1","player":"Spieler1"}]"""));
+                        [{"id":"1","playerName":"Spieler1"}]"""));
     }
+
     @DirtiesContext
     @Test
     void getPlayer_whenPlayerNotExists_returns404() throws Exception {
@@ -46,7 +48,7 @@ class FancyPartyAppControllerTest {
 
         //When & Then
         mockMvc.perform(
-                        get("/api/fancypartyapp/1337"))
+                        get("/api/fancypartyapp/1337/abc"))
                 .andExpect(status().is(404));
     }
 

@@ -1,7 +1,7 @@
 package com.example.backend.controller;
 
 
-import com.example.backend.model.FancyPartyApp;
+import com.example.backend.model.Player;
 import com.example.backend.service.FancyPartyAppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +20,22 @@ public class FancyPartyAppController {
     }
 
     @GetMapping
-    public List<FancyPartyApp> getAllPlayer() {
+    public List<Player> getAllPlayer() {
         return fancyPartyAppService.getAllPlayer();
     }
 
+    @GetMapping("{id}")
+    public Player getPlayer(@PathVariable String id){
+        return fancyPartyAppService.getPlayer(id);
+    }
+
     @PostMapping
-    FancyPartyApp addPlayer(@RequestBody FancyPartyApp addPlayer) {
+    Player addPlayer(@RequestBody Player addPlayer) {
         return fancyPartyAppService.addPlayer(addPlayer);
+    }
+
+    @DeleteMapping("{id}")
+    public void deleteCheatSheet(@PathVariable String id){
+        fancyPartyAppService.deletePlayer(id);
     }
 }

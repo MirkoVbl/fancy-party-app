@@ -1,33 +1,36 @@
 import {useEffect, useState} from "react";
-import {FancyPartyApp} from "../model/FancyPartyApp";
+import {Player} from "../model/Player";
 import axios from "axios";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 export default function useFancyPartyApp() {
 
-    const [player, setPlayer] = useState([]);
+    const [players, setPlayers] = useState([]);
 
     useEffect(()=> {
 
-        getAllPlayer()
+        getAllPlayers()
 
     }, [])
 
-    const getAllPlayer = () => {
+    const getAllPlayers = () => {
         axios.get("/api/fancypartyapp")
-            .then((response) => {
-                return response.data
-            })
-            .then((player) =>{
-                setPlayer(player)
-            })
+            .then(res => res.data)
+            .then(d => setPlayers(d))
+            .catch((error))
+    }
+
+    const createNewPlayer = (player: Player) => {
+        axios.post("/api/fancypartyapp", player)
+            .then(getAllPlayers)
+            .catch(()=> console.error())
+    }
+    const deletePlayer = (id:  String) => {
+        axios.delete("/api/fancypartyapp/" +id)
+            .then(getAllPlayers)
             .catch(()=> console.error())
     }
 
-    const addPlayer = (playerToAdd: FancyPartyApp) => {
-        axios.post("/api/fancypartyapp", playerToAdd)
-            .then(getAllPlayer)
-            .catch(()=> console.error())
-    }
-
-    return {player, addPlayer}
+    return {players,getAllPlayers, createNewPlayer, deletePlayer}
 }
