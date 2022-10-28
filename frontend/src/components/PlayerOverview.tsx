@@ -1,6 +1,6 @@
 import {Player} from "../model/Player";
 import PlayerCard from "./PlayerCard";
-import {FormEvent, useState} from "react";
+import {ChangeEvent, FormEvent, useState} from "react";
 
 
 type PlayerOverviewProps = {
@@ -13,27 +13,34 @@ type PlayerOverviewProps = {
 
 export default function PlayerOverview(props: PlayerOverviewProps){
 
-    const [name, setName] = useState("");
-
-    const onCreate= (e:FormEvent<HTMLFormElement>)=>{
-
-        e.preventDefault()
-        if(!name) {
-            alert("Bitte gebe zuerst einen Namen ein")
-            return
-        }
-        const newPlayer: Player = {
-            playerName: name,
-            id: "",
-        }
-        props.createNewPlayer(newPlayer)
+    const emptyPlayer: Player ={
+        playerName: "",
+        id: ""
     }
+    const [player, setPlayer] = useState(emptyPlayer);
+
+    function handleChange(event : ChangeEvent<HTMLInputElement>){
+
+        const name = event.target.name;
+        const newValue = event.target.value;
+
+        setPlayer((prevPlayer) => ({...prevPlayer,
+            [name]:newValue}))
+
+    }
+
+
+    function handleSubmit(e:FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+        props.createNewPlayer(player)
+    }
+
 
 
     return(
         <>
-            <form onSubmit={(e)=> onCreate(e)}>
-                <input name={"playerName"} placeholder={"Spielername"} onChange={event => setName(event.target.value)}/>
+            <form onSubmit={(e)=> handleSubmit(e)}>
+                <input name={"playerName"} placeholder={"Spielername"} onChange={handleChange}/>
                 <button type={"submit"}>Spieler hinzufügen</button>
             </form>
             <div className={"cards"}>
