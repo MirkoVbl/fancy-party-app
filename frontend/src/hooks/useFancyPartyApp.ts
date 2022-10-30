@@ -15,19 +15,19 @@ export default function useFancyPartyApp() {
     }, [])
 
     const getAllPlayers = () => {
-        axios.get("/api/fancypartyapp")
+        return axios.get("/api/fancypartyapp")
             .then(res => res.data)
             .then(d => setPlayers(d))
             .catch((error))
     }
 
-    const createNewPlayer = (player: Player) => {
-        axios.post("/api/fancypartyapp", player)
+    const createNewPlayer = (playerName: string) => {
+        return axios.post("/api/fancypartyapp", {playerName})
             .then(getAllPlayers)
             .catch(()=> console.error())
     }
     const deletePlayer = (id:  String) => {
-        axios.delete("/api/fancypartyapp/" +id)
+        return axios.delete("/api/fancypartyapp/" +id)
             .then(getAllPlayers)
             .catch(()=> console.error())
     }

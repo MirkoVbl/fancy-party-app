@@ -6,7 +6,8 @@ export default function NavBar(){
     return(
         <>
             <Link to={"/"}></Link>
-            <Link to={"/spielerliste"}><button>Spielerliste</button></Link>
+            <Link to={"/addplayer"}></Link>
+            <Link to={"/spielerliste"}></Link>
         </>
     )
 }

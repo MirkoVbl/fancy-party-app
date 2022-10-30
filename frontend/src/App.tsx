@@ -5,12 +5,13 @@ import {HashRouter, Route, Routes} from 'react-router-dom';
 import PlayerOverview from "./components/PlayerOverview";
 import NavBar from "./components/NavBar";
 import MainPage from "./pages/MainPage";
+import BackendService from "./services/BackendService";
 
 
 function App() {
 
     const {createNewPlayer, getAllPlayers, players, deletePlayer} = useFancyPartyApp();
-
+    const backendService = new BackendService();
 
     return (
         <div className="App">
@@ -21,10 +22,11 @@ function App() {
                     <Route path={"/"} element={<MainPage/>}/>
                     <Route path={"/spielerliste"}
                            element={<PlayerOverview
+                               backendService={backendService}
                                players={players}
                                getAllPlayers={getAllPlayers}
-                               createNewPlayer={createNewPlayer}
-                               deletePlayer={deletePlayer}/>}/>
+                               createNewPlayer={createNewPlayer}/>}/>
+
                 </Routes>
             </HashRouter>
         </div>
