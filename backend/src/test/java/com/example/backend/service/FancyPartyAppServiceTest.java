@@ -42,7 +42,7 @@ class FancyPartyAppServiceTest {
     @Test
     void addPlayer() {
         //Given
-        Player dummyPlayer = new Player("1337", "Spieler1");
+        Player dummyPlayer = new Player(null, "Spieler1");
         when(repo.save(dummyPlayer)).thenReturn(dummyPlayer);
 
         //When
