@@ -3,6 +3,7 @@ package com.example.backend.service;
 import com.example.backend.model.Player;
 import com.example.backend.repository.FancyPartyAppRepo;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.List;
 import java.util.Optional;
@@ -42,7 +43,7 @@ class FancyPartyAppServiceTest {
     @Test
     void addPlayer() {
         //Given
-        Player dummyPlayer = new Player("1337", "Spieler1");
+        Player dummyPlayer = new Player(null, "Spieler1");
         when(repo.save(dummyPlayer)).thenReturn(dummyPlayer);
 
         //When
