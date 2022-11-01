@@ -31,7 +31,7 @@ public class FancyPartyAppController {
     }
 
     @PostMapping
-    Player addPlayer(@RequestBody PlayerDTO addPlayer) {
+    Player addPlayer(@RequestBody Player addPlayer) {
         return fancyPartyAppService.addPlayer(addPlayer);
     }
 
