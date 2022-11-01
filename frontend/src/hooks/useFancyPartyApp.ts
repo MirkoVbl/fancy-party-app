@@ -1,7 +1,5 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 
 export default function useFancyPartyApp() {
 
@@ -17,7 +15,7 @@ export default function useFancyPartyApp() {
         return axios.get("/api/fancypartyapp")
             .then(res => res.data)
             .then(d => setPlayers(d))
-            .catch((error))
+            .catch(()=> console.error())
     }
 
     const createNewPlayer = (playerName: string) => {
