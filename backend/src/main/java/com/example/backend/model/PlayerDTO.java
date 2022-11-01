@@ -14,8 +14,5 @@ import org.springframework.data.annotation.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PlayerDTO {
-
-    @Id
-    private String id;
-    private String player;
+    private String playerName;
 }

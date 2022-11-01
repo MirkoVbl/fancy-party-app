@@ -26,9 +26,12 @@ public class FancyPartyAppService {
     }
 
     public Player addPlayer(Player addPlayer) {
-        addPlayer.setId(idService.generateId());
 
-        return fancyPartyAppRepo.save(addPlayer);
+        Player player = new Player();
+        player.setId(idService.generateId());
+        player.setPlayerName(addPlayer.getPlayerName());
+
+        return fancyPartyAppRepo.save(player);
     }
 
     public  void deletePlayer(String id) {fancyPartyAppRepo.deleteById(id);}

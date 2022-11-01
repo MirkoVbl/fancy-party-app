@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 
 import com.example.backend.model.Player;
+import com.example.backend.model.PlayerDTO;
 import com.example.backend.service.FancyPartyAppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +36,7 @@ public class FancyPartyAppController {
     }
 
     @DeleteMapping("{id}")
-    public void deleteCheatSheet(@PathVariable String id){
+    public void deletePlayer(@PathVariable String id){
         fancyPartyAppService.deletePlayer(id);
     }
 }
