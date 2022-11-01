@@ -15,11 +15,11 @@ function App() {
     return (
         <div className="App">
             <HashRouter>
-                <h1>Test</h1>
+                <h1>Fancy Party App</h1>
                 <NavBar/>
                 <Routes>
-                    <Route path={"/mainpage"} element={<MainPage/>}/>
-                    <Route path={"/"}
+                    <Route path={"/"} element={<MainPage/>}/>
+                    <Route path={"/spielerliste"}
                            element={<PlayerOverview
                                players={players}
                                getAllPlayers={getAllPlayers}
