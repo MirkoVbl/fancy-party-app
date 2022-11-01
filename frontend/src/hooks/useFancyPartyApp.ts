@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import {Player} from "../model/Player";
 import axios from "axios";
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;

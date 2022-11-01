@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios, {AxiosError} from "axios";
+import {Vote} from "../model/Vote";
 
 export default class BackendService {
     getAllPlayer() {
@@ -13,7 +14,25 @@ export default class BackendService {
     }
 
     deletePlayer(id: string) {
-        return axios.delete("/api/fancypartyapp" +id)
+        return axios.delete("/api/spielerliste/" +id)
             .catch(() => console.error())
+    }
+
+    getRandomQuestion(){
+        return axios.get("/api/questions/random")
+            .then(res => res.data)
+            .catch((err: AxiosError) => console.error(err.message))
+    }
+
+    voteForPlayer(vote: Vote){
+        return axios.post("/api/votes", vote)
+            .then(res => res.data)
+            .catch((err: AxiosError) => console.error(err.message))
+    }
+
+    getResult(id: string){
+        return axios.get("api/result/" +id)
+            .then(res => res.data)
+            .catch((err: AxiosError) => console.error(err.message))
     }
 }
