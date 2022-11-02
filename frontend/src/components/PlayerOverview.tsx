@@ -1,6 +1,6 @@
 import {Player} from "../model/Player";
 import PlayerCard from "./PlayerCard";
-import {ChangeEvent, FormEvent, useState} from "react";
+import {FormEvent, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import BackendService from "../services/BackendService";
 
@@ -22,7 +22,6 @@ export default function PlayerOverview(props: PlayerOverviewProps){
         props.backendService.createNewPlayer(playerName)
             .then(() => props.getAllPlayers())
             .then(() => setPlayerName(""));
-        // props.createNewPlayer(playerName).then(() => setPlayerName(""))
     }
 
     return(
@@ -42,7 +41,7 @@ export default function PlayerOverview(props: PlayerOverviewProps){
                 :
                 props.players.map((p)=>
                 <div className={"card"}>
-                    <PlayerCard player={p} getAllPlayers={props.getAllPlayers} backendService={props.backendService}/>
+                    <PlayerCard player={p} getAllPlayers={props.getAllPlayers} backendService={props.backendService} />
                 </div>)}
             </div>
             <button onClick={() => navigate("/editplayer")}>edit</button>
