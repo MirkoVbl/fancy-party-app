@@ -43,6 +43,7 @@ class FancyPartyAppServiceTest {
     @Test
     void addPlayer() {
         //Given
+        feature/punishment
         Player playerToAdd = Player.builder().playerName("Spieler1").build();
         when(repo.save(playerToAdd)).thenReturn(Player.builder().id("1337").playerName("Spieler1").build());
 
