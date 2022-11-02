@@ -1,10 +1,9 @@
 import {Player} from "../model/Player";
-import BackendService from "../services/BackendService";
+import {deletePlayer} from "../services/BackendService";
 
 type PlayerCardProps = {
     player: Player;
     getAllPlayers: () => Promise<void>
-    backendService: BackendService;
 }
 
 export default function PlayerCard (props: PlayerCardProps) {
@@ -13,7 +12,7 @@ export default function PlayerCard (props: PlayerCardProps) {
         if(props.player.id === undefined){
             return null;
         }
-        props.backendService.deletePlayer(props.player.id)
+        deletePlayer(props.player.id)
             .then(props.getAllPlayers);
     }
 

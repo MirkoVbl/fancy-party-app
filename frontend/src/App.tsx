@@ -6,13 +6,12 @@ import PlayerOverview from "./components/PlayerOverview";
 import NavBar from "./components/NavBar";
 import MainPage from "./pages/MainPage";
 import EditPage from "./pages/EditPage";
-import BackendService from "./services/BackendService";
+import GamePage from "./pages/GamePage";
 
 
 function App() {
 
-    const {createNewPlayer, getAllPlayers, players, deletePlayer} = useFancyPartyApp();
-    const backendService = new BackendService();
+    const {createNewPlayer, getAllPlayers, players, removePlayer} = useFancyPartyApp();
 
     return (
         <div className="App">
@@ -21,13 +20,12 @@ function App() {
                 <NavBar/>
                 <Routes>
                     <Route path={"/"} element={<MainPage/>}/>
+                    <Route path={"/game"} element={<GamePage/>}/>
                     <Route path={"/editplayer"}
-                           element={<EditPage
-                               players={players}
-                               deletePlayer={deletePlayer}/>}/>
+                    element={<EditPage players={players} deletePlayer={removePlayer}/>}/>
+
                     <Route path={"/spielerliste"}
                            element={<PlayerOverview
-                               backendService={backendService}
                                players={players}
                                getAllPlayers={getAllPlayers}
                                createNewPlayer={createNewPlayer}/>}/>

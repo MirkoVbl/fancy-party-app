@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import  {deletePlayer} from "../services/BackendService";
+
 
 export default function useFancyPartyApp() {
 
@@ -23,11 +25,11 @@ export default function useFancyPartyApp() {
             .then(getAllPlayers)
             .catch(()=> console.error())
     }
-    const deletePlayer = (id:  String) => {
-        return axios.delete("/api/fancypartyapp/" +id)
-            .then(getAllPlayers)
+    const removePlayer = (id:  string) => {
+            deletePlayer(id)
+            .then(()=> getAllPlayers)
             .catch(()=> console.error())
     }
 
-    return {players,getAllPlayers, createNewPlayer, deletePlayer}
+    return {players,getAllPlayers, createNewPlayer, removePlayer}
 }

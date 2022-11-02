@@ -2,14 +2,12 @@ import {Player} from "../model/Player";
 import PlayerCard from "./PlayerCard";
 import {FormEvent, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import BackendService from "../services/BackendService";
 
 
 type PlayerOverviewProps = {
     players: Player[]
     getAllPlayers: () => Promise<void>
     createNewPlayer: (newPlayerName: string) => Promise<void>
-    backendService: BackendService
 }
 
 export default function PlayerOverview(props: PlayerOverviewProps){
@@ -19,7 +17,7 @@ export default function PlayerOverview(props: PlayerOverviewProps){
 
     function handleSubmit(e:FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        props.backendService.createNewPlayer(playerName)
+        props.createNewPlayer(playerName)
             .then(() => props.getAllPlayers())
             .then(() => setPlayerName(""));
     }
@@ -41,10 +39,12 @@ export default function PlayerOverview(props: PlayerOverviewProps){
                 :
                 props.players.map((p)=>
                 <div className={"card"}>
-                    <PlayerCard player={p} getAllPlayers={props.getAllPlayers} backendService={props.backendService} />
+                    <PlayerCard player={p} getAllPlayers={props.getAllPlayers} />
                 </div>)}
             </div>
             <button onClick={() => navigate("/editplayer")}>edit</button>
+
+            <button onClick={() => navigate("/game")}>Start</button>
         </>
 
     )
