@@ -2,12 +2,8 @@ import {useNavigate} from "react-router-dom";
 import {getRandomQuestion} from "../services/BackendService";
 import {useEffect, useState} from "react";
 
-type GamePageProps = {
 
-}
-
-
-export default function GamePage(props: GamePageProps) {
+export default function GamePage() {
 
     const [question, setQuestion] = useState("")
 
