@@ -5,6 +5,7 @@ import {HashRouter, Route, Routes} from 'react-router-dom';
 import PlayerOverview from "./components/PlayerOverview";
 import NavBar from "./components/NavBar";
 import MainPage from "./pages/MainPage";
+import EditPage from "./pages/EditPage";
 import BackendService from "./services/BackendService";
 
 
@@ -20,6 +21,10 @@ function App() {
                 <NavBar/>
                 <Routes>
                     <Route path={"/"} element={<MainPage/>}/>
+                    <Route path={"/editplayer"}
+                           element={<EditPage
+                               players={players}
+                               deletePlayer={deletePlayer}/>}/>
                     <Route path={"/spielerliste"}
                            element={<PlayerOverview
                                backendService={backendService}

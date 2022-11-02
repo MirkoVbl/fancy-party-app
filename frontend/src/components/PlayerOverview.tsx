@@ -45,7 +45,7 @@ export default function PlayerOverview(props: PlayerOverviewProps){
                     <PlayerCard player={p} getAllPlayers={props.getAllPlayers} backendService={props.backendService}/>
                 </div>)}
             </div>
-
+            <button onClick={() => navigate("/editplayer")}>edit</button>
         </>
 
     )
