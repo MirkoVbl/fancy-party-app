@@ -10,6 +10,7 @@ export default function NavBar(){
             <Link to={"/editplayer"}></Link>
             <Link to={"/spielerliste"}></Link>
             <Link to={"/game"}></Link>
+            <Link to={"/result"}></Link>
         </>
     )
 }

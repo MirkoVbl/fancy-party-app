@@ -1,9 +1,9 @@
 package com.example.backend.service;
 
 import com.example.backend.model.Player;
+import com.example.backend.model.PlayerDTO;
 import com.example.backend.repository.FancyPartyAppRepo;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.List;
 import java.util.Optional;
@@ -43,15 +43,18 @@ class FancyPartyAppServiceTest {
     @Test
     void addPlayer() {
         //Given
-        Player dummyPlayer = new Player(null, "Spieler1");
-        when(repo.save(dummyPlayer)).thenReturn(dummyPlayer);
+        Player playerToAdd = Player.builder().playerName("Spieler1").build();
+        when(repo.save(playerToAdd)).thenReturn(Player.builder().id("1337").playerName("Spieler1").build());
+
 
         //When
-        Player actual = service.addPlayer(dummyPlayer);
+        PlayerDTO newPlayer = PlayerDTO.builder().playerName("Spieler1").build();
+        Player actual = service.addPlayer(newPlayer);
 
         //Then
-        verify(repo).save(dummyPlayer);
-        assertEquals(dummyPlayer, actual);
+        Player expected = Player.builder().id("1337").playerName("Spieler1").build();
+        verify(repo).save(playerToAdd);
+        assertEquals(expected, actual);
     }
 
     @Test
