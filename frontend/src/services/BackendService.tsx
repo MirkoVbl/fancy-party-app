@@ -34,3 +34,9 @@ export function getResult(id: string){
             .catch((err: AxiosError) => console.error(err.message))
     }
 
+export function getRandomPunishment(){
+        return axios.get("/api/punishments/random")
+            .then(res => res.data)
+            .catch((err: AxiosError) => console.error(err.message))
+    }
+
