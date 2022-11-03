@@ -1,6 +1,7 @@
 package com.example.backend.service;
 
 import com.example.backend.model.Player;
+import com.example.backend.model.PlayerDTO;
 import com.example.backend.repository.FancyPartyAppRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class FancyPartyAppService {
         return fancyPartyAppRepo.findAll();
     }
 
-    public Player addPlayer(Player addPlayer) {
+    public Player addPlayer(PlayerDTO addPlayer) {
 
         Player player = new Player();
         player.setId(idService.generateId());

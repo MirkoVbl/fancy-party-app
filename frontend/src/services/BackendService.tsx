@@ -1,38 +1,36 @@
 import axios, {AxiosError} from "axios";
 import {Vote} from "../model/Vote";
 
-export default class BackendService {
-    getAllPlayer() {
+export function getAllPlayer() {
         return axios.get("/api/fancypartyapp")
             .then(res => res.data)
             .catch(() => console.error())
     }
 
-    createNewPlayer(playerName: string) {
+export function createNewPlayer(playerName: string) {
         return axios.post("/api/fancypartyapp", {playerName})
             .catch(() => console.error())
     }
 
-    deletePlayer(id: string) {
-        return axios.delete("/api/spielerliste/" +id)
-            .catch(() => console.error())
+export function deletePlayer(id: string) {
+        return axios.delete("/api/fancypartyapp/" +id)
     }
 
-    getRandomQuestion(){
+export function getRandomQuestion(){
         return axios.get("/api/questions/random")
             .then(res => res.data)
             .catch((err: AxiosError) => console.error(err.message))
     }
 
-    voteForPlayer(vote: Vote){
+export function voteForPlayer(vote: Vote){
         return axios.post("/api/votes", vote)
             .then(res => res.data)
             .catch((err: AxiosError) => console.error(err.message))
     }
 
-    getResult(id: string){
+export function getResult(id: string){
         return axios.get("api/result/" +id)
             .then(res => res.data)
             .catch((err: AxiosError) => console.error(err.message))
     }
-}
+
