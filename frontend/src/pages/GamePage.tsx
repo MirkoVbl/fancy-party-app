@@ -11,24 +11,25 @@ export default function GamePage() {
         getRandomQuestion()
             .then((q)=>setQuestion(q.questionText))
 
-
     }, []);
 
     const navigate = useNavigate();
-    const navToGame = () => {
+
+    const submitNavigateToMainPage = () => {
         navigate("/")
     }
 
-    const submitNavigate = () => {
-        navToGame();
+    const submitNavigateTestResult = () => {
+        navigate("/result")
     }
-
 
     return(
         <>
             <p>{question}</p>
 
-            <button onClick={submitNavigate}>Aufhören</button>
+            <button onClick={submitNavigateTestResult}>Result Test</button>
+
+            <button onClick={submitNavigateToMainPage}>Aufhören</button>
         </>
     )
 }

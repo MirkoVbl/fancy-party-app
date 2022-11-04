@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import MainPage from "./pages/MainPage";
 import EditPage from "./pages/EditPage";
 import GamePage from "./pages/GamePage";
+import ResultPage from "./pages/ResultPage";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                 <Routes>
                     <Route path={"/"} element={<MainPage/>}/>
                     <Route path={"/game"} element={<GamePage/>}/>
+                    <Route path={"/result"} element={<ResultPage/>}/>
                     <Route path={"/editplayer"}
                     element={<EditPage players={players} deletePlayer={removePlayer}/>}/>
 
