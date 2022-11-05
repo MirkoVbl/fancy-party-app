@@ -39,7 +39,7 @@ export default function PlayerOverview(props: PlayerOverviewProps){
                 :
                 props.players.map((p)=>
                 <div className={"card"}>
-                    <PlayerCard player={p} getAllPlayers={props.getAllPlayers} />
+                    <PlayerCard player={p} getAllPlayers={props.getAllPlayers}  />
                 </div>)}
             </div>
             <button onClick={() => navigate("/editplayer")}>edit</button>

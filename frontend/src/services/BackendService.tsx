@@ -1,19 +1,19 @@
 import axios, {AxiosError} from "axios";
 import {Vote} from "../model/Vote";
 
-export function getAllPlayer() {
-        return axios.get("/api/fancypartyapp")
+export function getAllPlayers() {
+        return axios.get("/api/players")
             .then(res => res.data)
             .catch(() => console.error())
     }
 
 export function createNewPlayer(playerName: string) {
-        return axios.post("/api/fancypartyapp", {playerName})
+        return axios.post("/api/players", {playerName})
             .catch(() => console.error())
     }
 
 export function deletePlayer(id: string) {
-        return axios.delete("/api/fancypartyapp/" +id)
+        return axios.delete("/api/players/" +id)
     }
 
 export function getRandomQuestion(){

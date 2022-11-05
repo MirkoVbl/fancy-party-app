@@ -14,14 +14,14 @@ export default function useFancyPartyApp() {
     }, [])
 
     const getAllPlayers = () => {
-        return axios.get("/api/fancypartyapp")
+        return axios.get("/api/players")
             .then(res => res.data)
             .then(d => setPlayers(d))
             .catch(()=> console.error())
     }
 
     const createNewPlayer = (playerName: string) => {
-        return axios.post("/api/fancypartyapp", {playerName})
+        return axios.post("/api/players", {playerName})
             .then(getAllPlayers)
             .catch(()=> console.error())
     }
