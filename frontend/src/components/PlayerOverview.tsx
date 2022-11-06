@@ -42,7 +42,6 @@ export default function PlayerOverview(props: PlayerOverviewProps){
                     <PlayerCard player={p} getAllPlayers={props.getAllPlayers}  />
                 </div>)}
             </div>
-            <button onClick={() => navigate("/editplayer")}>edit</button>
 
             <button onClick={() => navigate("/game")}>Start</button>
         </>

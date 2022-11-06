@@ -51,11 +51,11 @@ export default function ResultPage(props: ResultPageProps){
         if (playersSortedByVotes.length < 2) {
             throw new Error('Nicht genug Spieler');
         }
-        if (playersSortedByVotes[0].voteCount === playersSortedByVotes[1].voteCount) {
-            return "Unentschieden";
-        }
 
-        return playersSortedByVotes[0].player.playerName;
+        return playersSortedByVotes
+            .filter(p => p.voteCount === playersSortedByVotes[0].voteCount)
+            .map(p => p.player.playerName)
+            .join(', ');
     }
 
     return(
