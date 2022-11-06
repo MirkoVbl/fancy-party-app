@@ -6,8 +6,6 @@ import com.example.backend.service.VoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/votes")
 public class VoteController {
@@ -23,11 +21,4 @@ public class VoteController {
     public Vote createVote(@RequestBody VoteDTO voteDTO){
         return voteService.createVote(voteDTO);
     }
-
-    @GetMapping("byQuestionId")
-    public List<Vote> allVotesForQuestion(@RequestParam String questionId){
-        return voteService.allVotesForQuestion(questionId);
-    }
-
-
 }

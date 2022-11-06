@@ -6,8 +6,6 @@ import com.example.backend.repository.VoteRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class VoteService {
     private final VoteRepo voteRepo;
@@ -28,9 +26,4 @@ public class VoteService {
         vote.setQuestionId(voteDTO.getQuestionId());
         return voteRepo.save(vote);
     }
-
-    public List<Vote> allVotesForQuestion(String questionId){
-        return voteRepo.findVotesByQuestionId(questionId);
-    }
-
 }
