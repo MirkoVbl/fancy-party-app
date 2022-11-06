@@ -13,7 +13,7 @@ export default function ResultPage(){
     }, []);
 
     const navigate = useNavigate();
-    
+
     const navToGame = () => {
         navigate("/game")
     }

@@ -21,7 +21,7 @@ function App() {
                 <NavBar/>
                 <Routes>
                     <Route path={"/"} element={<MainPage/>}/>
-                    <Route path={"/game"} element={<GamePage/>}/>
+                    <Route path={"/game"} element={<GamePage players={players}/>}/>
                     <Route path={"/result"} element={<ResultPage/>}/>
                     <Route path={"/editplayer"}
                     element={<EditPage players={players} deletePlayer={removePlayer}/>}/>

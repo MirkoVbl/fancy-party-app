@@ -1,11 +1,12 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import  {deletePlayer} from "../services/BackendService";
+import {Player} from "../model/Player";
 
 
 export default function useFancyPartyApp() {
 
-    const [players, setPlayers] = useState([]);
+    const [players, setPlayers] = useState<Player[]>([]);
 
     useEffect(()=> {
 
