@@ -22,7 +22,7 @@ function App() {
                 <Routes>
                     <Route path={"/"} element={<MainPage/>}/>
                     <Route path={"/game"} element={<GamePage players={players}/>}/>
-                    <Route path={"/result"} element={<ResultPage/>}/>
+                    <Route path={"/result/:questionId"} element={<ResultPage players={players}/>}/>
                     <Route path={"/editplayer"}
                     element={<EditPage players={players} deletePlayer={removePlayer}/>}/>
 

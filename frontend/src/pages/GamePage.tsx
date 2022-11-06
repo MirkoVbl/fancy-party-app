@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router-dom";
-import {getRandomQuestion, getResult, voteForPlayer} from "../services/BackendService";
+import {getRandomQuestion, deleteResult, voteForPlayer} from "../services/BackendService";
 import {useEffect, useState} from "react";
 import {Player} from "../model/Player";
 import {Question} from "../model/Question";
@@ -24,7 +24,10 @@ export default function GamePage(props: GamePageProps) {
         }
 
         getRandomQuestion()
-            .then((q)=>setQuestion(q))
+            .then((q: Question) => {
+                setQuestion(q);
+                deleteResult(q.id);
+            })
         nextPlayerOrResult();
 
     }, []);

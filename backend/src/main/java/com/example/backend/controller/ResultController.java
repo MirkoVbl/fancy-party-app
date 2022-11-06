@@ -18,12 +18,12 @@ public class ResultController {
     }
 
     @GetMapping("{questionId}")
-    public List<Vote> allResultsForQuestion(String questionId){
+    public List<Vote> allResultsForQuestion(@PathVariable String questionId){
         return resultService.allVotesForQuestion(questionId);
     }
 
     @DeleteMapping("{questionId}")
-    public List<Vote> deleteVotesForQuestion(String questionId){
+    public List<Vote> deleteVotesForQuestion(@PathVariable String questionId){
         return resultService.deleteVotesForQuestion(questionId);
     }
 }
