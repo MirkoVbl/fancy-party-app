@@ -38,11 +38,10 @@ export default function PlayerOverview(props: PlayerOverviewProps){
                 <h2>Spielerliste ist leer</h2>
                 :
                 props.players.map((p)=>
-                <div className={"card"}>
-                    <PlayerCard player={p} getAllPlayers={props.getAllPlayers} />
+                <div className={"card"} key={"player_" + p.id}>
+                    <PlayerCard player={p} getAllPlayers={props.getAllPlayers}  />
                 </div>)}
             </div>
-            <button onClick={() => navigate("/editplayer")}>edit</button>
 
             <button onClick={() => navigate("/game")}>Start</button>
         </>
