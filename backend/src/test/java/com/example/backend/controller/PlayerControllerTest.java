@@ -35,7 +35,7 @@ class PlayerControllerTest {
     @Test
     void getAllPlayers() throws Exception {
         //Given
-        Player dummyPlayer = new Player("1","Spieler1");
+        Player dummyPlayer = new Player("1337","Spieler1");
         repo.save(dummyPlayer);
 
         //When & Then
@@ -43,7 +43,7 @@ class PlayerControllerTest {
                 get("/api/players"))
                 .andExpect(status().is(200))
                 .andExpect(content().string("""
-                        [{"id":"1","playerName":"Spieler1"}]"""));
+                        [{"id":"1337","playerName":"Spieler1"}]"""));
     }
 
     @DirtiesContext
