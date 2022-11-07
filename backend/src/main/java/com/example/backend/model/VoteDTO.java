@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 @Builder
 @Data
@@ -13,8 +12,6 @@ import org.springframework.data.annotation.Id;
 @NoArgsConstructor
 public class VoteDTO {
 
-    @Id
-    private String id;
     private String voterId;
     private String questionId;
     private String answerId;
