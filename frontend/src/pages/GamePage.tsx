@@ -30,7 +30,7 @@ export default function GamePage(props: GamePageProps) {
             })
         nextPlayerOrResult();
 
-    }, []);
+    },[]);
 
     const navigate = useNavigate();
 
