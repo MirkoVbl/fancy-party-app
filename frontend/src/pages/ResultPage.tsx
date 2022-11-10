@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState} from "react";
 import {getRandomPunishment, getResult} from "../services/BackendService";
 import {useNavigate, useParams} from "react-router-dom";
 import {Punishment} from "../model/Punishment";
@@ -15,6 +15,7 @@ export default function ResultPage(props: ResultPageProps){
     const[punishment, setPunishment] = useState<Punishment>()
     const[result, setResult] = useState("")
 
+
     useEffect(()=>{
         if (typeof questionId !== 'string') {
             throw new Error('Question ID fehlt!')
@@ -23,7 +24,7 @@ export default function ResultPage(props: ResultPageProps){
             .then((p: Punishment) => setPunishment(p))
         getResult(questionId)
             .then((r: Vote[])=> setResult(getPlayerWithMostVotes(r)))
-
+        // eslint-disable-next-line
     }, []);
 
     const navigate = useNavigate();
