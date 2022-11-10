@@ -29,7 +29,7 @@ export default function GamePage(props: GamePageProps) {
                 deleteResult(q.id);
             })
         nextPlayerOrResult();
-
+        // eslint-disable-next-line
     },[]);
 
     const navigate = useNavigate();
