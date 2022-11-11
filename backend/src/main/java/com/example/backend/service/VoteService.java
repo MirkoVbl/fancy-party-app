@@ -19,11 +19,11 @@ public class VoteService {
 
     public Vote createVote(VoteDTO voteDTO){
 
-        Vote vote = new Vote();
-        vote.setId(idService.generateId());
-        vote.setVoterId(voteDTO.getVoterId());
-        vote.setAnswerId(voteDTO.getAnswerId());
-        vote.setQuestionId(voteDTO.getQuestionId());
+        Vote vote = Vote.builder()
+                        .id(idService.generateId())
+                        .questionId(voteDTO.getQuestionId())
+                        .answerId(voteDTO.getAnswerId())
+                        .voterId(voteDTO.getVoterId()).build();
         return voteRepo.save(vote);
     }
 }
