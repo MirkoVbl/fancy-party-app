@@ -1,7 +1,7 @@
 package com.example.backend.controller;
 
-import com.example.backend.model.Question;
-import com.example.backend.repository.QuestionRepo;
+import com.example.backend.model.Punishment;
+import com.example.backend.repository.PunishmentRepo;
 import com.example.backend.service.IdService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,77 +19,51 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
-
-
 @SpringBootTest
 @AutoConfigureMockMvc
-class QuestionControllerTest {
+class PunishmentControllerTest {
 
     @Autowired
     MockMvc mockMvc;
 
     @Autowired
-    private QuestionRepo repo;
+    private PunishmentRepo repo;
 
     @MockBean
     private IdService idService;
 
     @DirtiesContext
     @Test
-    void getAllQuestions() throws Exception{
+    void getAllPunishments() throws Exception {
         //Given
-        Question dummyQuestion = new Question("1337","Wer ist am sportlichsten?");
-        repo.save(dummyQuestion);
+        Punishment dummyPunishment = new Punishment("1","Trinke etwas");
+        Punishment dummyPunishment2 = new Punishment("2","Trinke einen Shot");
+        repo.save(dummyPunishment);
+        repo.save(dummyPunishment2);
 
         //When & Then
         mockMvc.perform(
-                        get("/api/questions"))
+                        get("/api/punishments"))
                 .andExpect(status().is(200))
                 .andExpect(content().string("""
-                        [{"id":"1337","questionText":"Wer ist am sportlichsten?"}]"""));
+                        [{"id":"1","punishmentText":"Trinke etwas"},{"id":"2","punishmentText":"Trinke einen Shot"}]"""));
     }
 
 
     @DirtiesContext
     @Test
-    void getQuestion_whenQuestionNotExists_returns404() throws Exception {
+    void createPunishment() throws Exception {
         //Given
-
-        //When & Then
-        mockMvc.perform(
-                        get("/api/questions/1337/abc"))
-                .andExpect(status().is(404));
-    }
-
-    @DirtiesContext
-    @Test
-    void createQuestion() throws  Exception{
-        //Given
-        when(idService.generateId()).thenReturn("1337");
+        when(idService.generateId()).thenReturn("1");
 
         //WHEN & Then
         mockMvc.perform(
-                        post("/api/questions")
+                        post("/api/punishments")
                                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                                 .content("""
-                                {"questionText":"Wer ist am sportlichsten?"}"""))
+                                {"punishmentText":"Trinke etwas"}"""))
                 .andExpect(status().is(200))
                 .andExpect(content().string("""
-                        {"id":"1337","questionText":"Wer ist am sportlichsten?"}"""));
-    }
-    @DirtiesContext
-    @Test
-    void createQuestion_whenMissingName_returns400() throws Exception {
-        //Given
-        when(idService.generateId()).thenReturn("1337");
-
-        //When & Then
-        mockMvc.perform(
-                        post("/api/questions")
-                                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                                .content("""
-                                    {""}"""))
-                .andExpect(status().is(400));
+                        {"id":"1","punishmentText":"Trinke etwas"}"""));
     }
 }

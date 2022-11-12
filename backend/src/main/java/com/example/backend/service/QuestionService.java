@@ -26,9 +26,9 @@ public class QuestionService {
 
     public Question createQuestion(QuestionDTO questionDTO){
 
-        Question question = new Question();
-        question.setId(idService.generateId());
-        question.setQuestionText(questionDTO.getQuestionText());
+        Question question = Question.builder()
+                .id(idService.generateId())
+                .questionText(questionDTO.getQuestionText()).build();
         return questionRepo.save(question);
     }
 
