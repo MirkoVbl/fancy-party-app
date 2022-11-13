@@ -4,6 +4,8 @@ import {useNavigate, useParams} from "react-router-dom";
 import {Punishment} from "../model/Punishment";
 import {Vote} from "../model/Vote";
 import {Player} from "../model/Player";
+import {toast} from "react-toastify";
+import "./ResultPage.css"
 
 type ResultPageProps = {
     players: Player[];
@@ -18,7 +20,7 @@ export default function ResultPage(props: ResultPageProps){
 
     useEffect(()=>{
         if (typeof questionId !== 'string') {
-            throw new Error('Question ID fehlt!')
+            throw toast('Question ID fehlt!')
         }
         getRandomPunishment()
             .then((p: Punishment) => setPunishment(p))
@@ -61,10 +63,11 @@ export default function ResultPage(props: ResultPageProps){
 
     return(
         <>
-            <p>Das Ergebnis ist: {result}</p>
-            <p>{punishment?.punishmentText}</p>
+            <p className={"punish"}>Das Ergebnis ist: </p><br/>
+            <p className={"punishResult"}>{result}</p><br/>
+            <div className={"punishText"}>{punishment?.punishmentText}</div><br/>
 
-            <button onClick={submitNavigate}>Nächste Runde</button>
+            <button className={"nextRoundButton"} onClick={submitNavigate}>Nächste Runde</button>
         </>
     )
 }
