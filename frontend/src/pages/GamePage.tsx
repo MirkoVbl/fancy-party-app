@@ -3,6 +3,7 @@ import {getRandomQuestion, deleteResult, voteForPlayer} from "../services/Backen
 import {useEffect, useState} from "react";
 import {Player} from "../model/Player";
 import {Question} from "../model/Question";
+import "./GamePage.css"
 
 type GamePageProps = {
     players: Player[];
@@ -62,13 +63,14 @@ export default function GamePage(props: GamePageProps) {
     }
 
     return(
-        <>
-            <p>{question?.questionText}</p>
-            <p>{currentPlayer?.playerName}, du bist dran!</p>
+        <div className={"App"}>
+            <div className={"questiontext"}>{question?.questionText} </div>
+            <div className={"playerName"}>{currentPlayer?.playerName}</div>
+            <div className={"playerVoteText"}>stimme jetzt ab!</div>
             {props.players.map((p)=>
-            <button key={"player_" + p.id} onClick={() => vote(p)}>{p.playerName}</button>)}
+            <button className={"playerVoteButton"} key={"player_" + p.id} onClick={() => vote(p)}>{p.playerName}</button>)}
 
-            <button onClick={submitNavigateToMainPage}>Aufhören</button>
-        </>
+            <button className={"aufhoerenButton"} onClick={submitNavigateToMainPage}>Aufhören</button>
+        </div>
     )
 }
