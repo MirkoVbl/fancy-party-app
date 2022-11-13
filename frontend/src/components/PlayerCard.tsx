@@ -1,5 +1,9 @@
 import {Player} from "../model/Player";
 import {deletePlayer} from "../services/BackendService";
+import "./PlayerCard.css"
+import {toast, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 type PlayerCardProps = {
     player: Player;
@@ -16,14 +20,36 @@ export default function PlayerCard (props: PlayerCardProps) {
             .then(props.getAllPlayers);
     }
 
+    const deleteToast = () => {
+        toast.success("Spieler gelöscht", {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+        });}
 
     return (
 
-        <div className={"player-card"}>
+        <div className={"player-card"} >
+            <ToastContainer
+                position="top-center"
+                autoClose={1000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable={false}
+                pauseOnHover={false}
+                theme="dark"
+            />
 
-            <p>{props.player.playerName}</p>
-            <button onClick={deleteHandler}>Löschen</button>
-
+            <p className={"specialP"}>{props.player.playerName}</p>
+            <button className={"buttonBackground"} onClick={deleteHandler} onClickCapture={deleteToast} ><i className="fa-solid fa-user-xmark"></i></button>
         </div>
     )
 }

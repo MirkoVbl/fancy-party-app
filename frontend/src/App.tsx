@@ -16,7 +16,9 @@ function App() {
     return (
         <div className="App">
             <HashRouter>
-                <h1>Fancy Party App</h1>
+                <div className={"title"}><h1>Fancy Party App</h1></div>
+                <div className={"copyright"}><i className="fa-regular fa-copyright"></i> Mirko.V</div>
+
                 <NavBar/>
                 <Routes>
                     <Route path={"/"} element={<MainPage/>}/>

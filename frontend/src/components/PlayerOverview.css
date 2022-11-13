@@ -1,13 +1,121 @@
-.cards {
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');*
+
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.cards{
     display: flex;
+    position: relative;
+    top: 180px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
-
-.card {
+.card{
     border: 1px solid black;
-    margin: 1rem 1rem;
+    margin: 10px;
     border-radius: 9px;
     box-shadow: 5px 5px 5px #00000052;
+    position: relative;
+    right: 9px;
 }
+.startButton{
+    box-sizing: border-box;
+    position: absolute;
+    width: 319px;
+    left: 50px;
+    top: 800px;
+    background: linear-gradient(45deg, #0047fb, #0e1538, #f60cf2);
+    border: 2px solid black;
+    border-radius: 15px;
+
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-style: italic;
+    padding-left: 83px;
+    color: white;
+    -webkit-text-stroke: 1px black;
+    font-weight: 200;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    font-feature-settings: "salt" on, "ss01" on, "ss02" on, "ss03" on, "ss04" on;
+}
+
+
+button{
+    box-sizing: border-box;
+    border-radius: 15px;
+    position: relative;
+    border: 1px solid black;
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    color: white;
+    background: linear-gradient(45deg, #ffffff, #0e1538, #0e1538, #ffffff);
+
+}
+
+.button {
+    background: linear-gradient(45deg, #0047fb, #0e1538, #f60cf2);
+}
+
+.playerInput{
+    box-sizing: border-box;
+    border-radius: 15px;
+    position: absolute;
+    top: 105px;
+    left: 38px;
+    border: 1px solid black;
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+    text-align: center;
+    font-family: sans-serif;
+    font-style: oblique;
+    font-size: 17px;
+    margin-right: 20px;
+    color: white;
+    background: linear-gradient(45deg, rgb(255, 255, 255), rgb(14, 21, 56), rgb(14, 21, 56), rgb(14, 21, 56), rgb(14, 21, 56), rgb(255, 255, 255));
+
+}
+.spielerHinzufuegenButton{
+    box-sizing: border-box;
+    border-radius: 15px;
+    position: absolute;
+    top: 105px;
+    right: 28px;
+    border: 1px solid black;
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+    text-align: center;
+    font-family: sans-serif;
+    font-style: oblique;
+    font-size: 17px;
+    margin-right: 20px;
+    color: white;
+    background: linear-gradient(45deg, rgb(255, 255, 255), rgb(14, 21, 56), rgb(14, 21, 56), rgb(14, 21, 56), rgb(14, 21, 56), rgb(255, 255, 255));
+
+}
+::placeholder{
+    color: #ffffff;
+
+}
+.emptyPlayerlist {
+    text-align: center;
+    color: #00ecfb;
+    font-size: 32px;
+    -webkit-text-stroke: 1px black;
+    position: absolute;
+    left: 55px;
+}
+
+
+
+

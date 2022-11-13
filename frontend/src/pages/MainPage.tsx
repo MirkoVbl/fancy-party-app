@@ -1,4 +1,5 @@
 import {useNavigate} from "react-router-dom";
+import "./MainPageCss.css"
 
 export default function MainPage(){
 
@@ -12,10 +13,12 @@ export default function MainPage(){
     }
 
     return(
-        <>
-        <h5>Viel Spaß beim spielen</h5>
-            <button onClick={submitNavigate}>Spielerliste</button>
-        </>
+            <body className={"background"}>
+            <h5 className={"playIcon"}><i className="fa-regular fa-circle-play"></i></h5>
+        <h5 className={"vielSpass"}>Viel Spaß beim spielen!</h5>
+            <button className={"buttonstart"} onClick={submitNavigate}></button>
+            </body>
+
     )
 
 }

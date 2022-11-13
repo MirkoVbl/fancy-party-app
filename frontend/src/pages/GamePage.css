@@ -1,0 +1,64 @@
+
+.aufhoerenButton{
+    box-sizing: border-box;
+    position: absolute;
+    width: 173px;
+    height: 48px;
+    left: 115px;
+    top: 815px;
+    background: linear-gradient(45deg, #ff1800, #0e1538, #0e1538, #ff1800);
+    border: 2px solid black;
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+}
+.questiontext {
+    position: absolute;
+    top: 145px;
+    left: 10px;
+    padding: 15px;
+    font-size: 34px;
+    font-style: italic;
+    font-family: "Comic Sans MS";
+    -webkit-text-stroke: 1px black;
+    color: white;
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 75px;
+    box-shadow: 5px 5px 5px #00000052;
+    right: 9px;
+}
+.playerVoteButton{
+    box-sizing: border-box;
+    border-radius: 15px;
+    position: relative;
+    top: 515px;
+    right: 0px;
+    border: 1px solid black;
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+    text-align: center;
+    font-family: sans-serif;
+    font-style: oblique;
+    font-size: 19px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    color: white;
+    background: linear-gradient(45deg, rgb(0, 255, 7), rgb(14, 21, 56), rgb(14, 21, 56), rgb(14, 21, 56), rgb(0, 255, 7));
+}
+.playerVoteText {
+    position: absolute;
+    top: 525px;
+    left: 70px;
+    font-size: 35px;
+    color: black;
+}
+.playerName{
+    -webkit-text-stroke: 1px black;
+    color: #00ecfb;
+    font-size: 45px;
+    font-style: italic;
+    position: relative;
+    top: 465px;
+}
