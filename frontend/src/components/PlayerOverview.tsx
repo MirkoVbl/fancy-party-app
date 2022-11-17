@@ -61,11 +61,13 @@ export default function PlayerOverview(props: PlayerOverviewProps){
                     value={playerName}
                     onChange={(e) => setPlayerName(e.target.value)}
                 />
-                <button className={"spielerHinzufuegenButton"} type={"submit"} onClick={addPlayerToast}>Spieler hinzufügen</button>
+                <button className={"spielerHinzufuegenButton"} type={"submit"} onClick={addPlayerToast}><i
+                    className="fa-solid fa-circle-plus"></i>
+                </button>
             </form>
             <div className={"cards"}>
                 {props.players.length < 1 ?
-                <h2 className={"emptyPlayerlist"}>Spielerliste ist leer</h2>
+                <p className={"emptyPlayerlist"}>Spielerliste ist leer</p>
                 :
                 props.players.map((p)=>
                 <div className={"card"} key={"player_" + p.id}>

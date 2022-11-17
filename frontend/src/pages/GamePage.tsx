@@ -63,7 +63,7 @@ export default function GamePage(props: GamePageProps) {
     }
 
     return(
-        <div className={"App"}>
+        <div>
             <div className={"questiontext"}>{question?.questionText} </div>
             <div className={"playerName"}>{currentPlayer?.playerName}</div>
             <div className={"playerVoteText"}>stimme jetzt ab!</div>
