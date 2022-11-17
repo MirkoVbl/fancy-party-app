@@ -1,23 +1,27 @@
 .punish{
     -webkit-text-stroke: 1px black;
+    text-align: center;
     color: #ffffff;
-    font-size: 40px;
+    font-size: 32px;
     font-family: "Comic Sans MS";
     font-style: italic;
     position: relative;
-    top: 135px;
+    top: -28px;
+    left: 63px;
 }
 .punishResult{
     -webkit-text-stroke: 1px black;
     color: #00ecfb;
-    font-size: 35px;
+    font-size: 32px;
     font-style: italic;
     position: relative;
-    top: 140px;
+    left: 38%;
+    top: -35px;
 }
 .punishText {
     position: absolute;
-    top: 300px;
+    text-align: center;
+    top: 130px;
     left: 10px;
     font-size: 34px;
     font-style: italic;
@@ -35,9 +39,9 @@
     box-sizing: border-box;
     position: absolute;
     width: 185px;
-    height: 60px;
-    left: 115px;
-    top: 800px;
+    height: 50px;
+    left: 98px;
+    top: 609px;
     background: linear-gradient(45deg, #0047fb, #0e1538, #f60cf2);
     border: 2px solid black;
     border-radius: 15px;

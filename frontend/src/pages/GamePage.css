@@ -3,9 +3,9 @@
     box-sizing: border-box;
     position: absolute;
     width: 173px;
-    height: 48px;
-    left: 115px;
-    top: 815px;
+    height: 45px;
+    left: 110px;
+    top: 615px;
     background: linear-gradient(45deg, #ff1800, #0e1538, #0e1538, #ff1800);
     border: 2px solid black;
     border-radius: 15px;
@@ -14,8 +14,8 @@
 }
 .questiontext {
     position: absolute;
-    top: 145px;
-    left: 10px;
+    top: 65px;
+    text-align: center;
     padding: 15px;
     font-size: 34px;
     font-style: italic;
@@ -26,14 +26,13 @@
     margin: 10px;
     border-radius: 75px;
     box-shadow: 5px 5px 5px #00000052;
-    right: 9px;
 }
 .playerVoteButton{
     box-sizing: border-box;
     border-radius: 15px;
     position: relative;
-    top: 515px;
-    right: 0px;
+    top: 275px;
+    left: 18px;
     border: 1px solid black;
     width: 160px;
     height: 60px;
@@ -48,9 +47,9 @@
     background: linear-gradient(45deg, rgb(0, 255, 7), rgb(14, 21, 56), rgb(14, 21, 56), rgb(14, 21, 56), rgb(0, 255, 7));
 }
 .playerVoteText {
-    position: absolute;
-    top: 525px;
-    left: 70px;
+    position: relative;
+    top: 275px;
+    text-align: center;
     font-size: 35px;
     color: black;
 }
@@ -58,7 +57,8 @@
     -webkit-text-stroke: 1px black;
     color: #00ecfb;
     font-size: 45px;
+    text-align: center;
     font-style: italic;
     position: relative;
-    top: 465px;
+    top: 290px;
 }
